@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#07111d">
+  <title>暮光疾行 · Duskline</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game-canvas" aria-label="暮光疾行 3D 游戏画面"></canvas>
+
+    <section id="loading-screen" class="screen visible" aria-live="polite">
+      <div class="loading-mark"><i></i><i></i><i></i></div>
+      <p>正在架设高架跑道</p>
+    </section>
+
+    <section id="menu-screen" class="screen" aria-labelledby="game-title">
+      <div class="menu-panel">
+        <p class="eyebrow">黄昏 / 未来城高架线</p>
+        <h1 id="game-title"><span>暮光</span>疾行</h1>
+        <p class="subtitle">DUSKLINE RUNNER</p>
+        <div class="menu-rule"></div>
+        <p class="best-line">最高分 <strong id="menu-best">0</strong></p>
+        <button id="start-button" class="primary-button" type="button"><span>开始奔跑</span><b aria-hidden="true">→</b></button>
+        <div class="controls" aria-label="操作说明">
+          <div><kbd>A</kbd><kbd>D</kbd><span>换道</span></div>
+          <div><kbd>W</kbd><kbd>Space</kbd><span>跳跃</span></div>
+          <div><kbd>S</kbd><span>滑铲</span></div>
+        </div>
+        <p class="touch-hint">触屏：向四个方向滑动</p>
+      </div>
+    </section>
+
+    <header id="hud" class="hud" aria-label="游戏状态">
+      <div class="hud-stats">
+        <div><span>分数</span><strong id="score-value">000000</strong></div>
+        <div><span>金币</span><strong id="coin-value">0</strong></div>
+        <div><span>距离</span><strong><b id="distance-value">0</b><small>m</small></strong></div>
+      </div>
+      <div class="hud-actions">
+        <button id="sound-button" class="icon-button" type="button" aria-label="关闭声音" aria-pressed="true"><span class="sound-icon" aria-hidden="true"></span></button>
+        <button id="pause-button" class="icon-button" type="button" aria-label="暂停游戏"><span class="pause-icon" aria-hidden="true"></span></button>
+      </div>
+    </header>
+
+    <div id="combo-display" aria-live="polite"><strong id="combo-value"></strong><span>连击</span></div>
+
+    <section id="pause-screen" class="screen compact" aria-labelledby="pause-title">
+      <div class="modal-panel">
+        <p class="eyebrow">高架线已冻结</p>
+        <h2 id="pause-title">暂停</h2>
+        <button id="resume-button" class="primary-button" type="button"><span>继续</span><b aria-hidden="true">→</b></button>
+        <button id="pause-restart-button" class="text-button" type="button">重新开始</button>
+      </div>
+    </section>
+
+    <section id="gameover-screen" class="screen compact" aria-labelledby="gameover-title">
+      <div class="modal-panel result-panel">
+        <p id="result-kicker" class="eyebrow">本次行程结束</p>
+        <h2 id="gameover-title">跑得不错</h2>
+        <div class="result-score"><span>本局得分</span><strong id="final-score">0</strong></div>
+        <div class="result-grid">
+          <div><span>金币</span><strong id="final-coins">0</strong></div>
+          <div><span>距离</span><strong><b id="final-distance">0</b> m</strong></div>
+          <div><span>最高分</span><strong id="final-best">0</strong></div>
+        </div>
+        <button id="restart-button" class="primary-button" type="button"><span>再跑一次</span><b aria-hidden="true">↻</b></button>
+        <button id="menu-button" class="text-button" type="button">返回首页</button>
+      </div>
+    </section>
+
+    <div id="flash"></div>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
