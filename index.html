@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#111b2b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23122035'/%3E%3Cpath d='M8 26L15 6h4l-7 20zm11 0l7-20h-4l-7 20z' fill='%23f0a06c'/%3E%3C/svg%3E">
+  <meta name="description" content="暮线：黄昏未来城市中的三轨 3D 无尽跑酷游戏">
+  <title>暮线 · DUSKLINE</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js/responsive.css">
+</head>
+<body>
+  <main id="game-shell" aria-label="暮线 3D 跑酷游戏">
+    <canvas id="game-canvas" aria-label="3D 游戏画面"></canvas>
+
+    <section id="loading-screen" class="screen active" aria-live="polite">
+      <div class="loading-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p>正在接入暮色高架</p>
+    </section>
+
+    <section id="menu-screen" class="screen menu-screen" hidden>
+      <div class="menu-copy">
+        <p class="eyebrow">黄昏城际高架 · 17:48</p>
+        <h1><span>暮线</span><small>DUSKLINE</small></h1>
+        <p class="tagline">越过封锁，跑进夜色。</p>
+        <button id="start-button" class="primary-button" type="button">开始奔跑 <span>Enter</span></button>
+        <div class="best-line">最高记录 <strong id="menu-best">0</strong></div>
+      </div>
+      <div class="controls-panel" aria-label="操作说明">
+        <div><kbd>A</kbd><kbd>D</kbd><span>换道</span></div>
+        <div><kbd>W</kbd><kbd>Space</kbd><span>跳跃</span></div>
+        <div><kbd>S</kbd><span>滑铲</span></div>
+        <p>移动端可向四个方向滑动</p>
+      </div>
+    </section>
+
+    <section id="hud" hidden aria-label="游戏信息">
+      <div class="score-block"><span>得分</span><strong id="score-value">000000</strong></div>
+      <div class="hud-secondary">
+        <div><span>金币</span><strong id="coin-value">0</strong></div>
+        <div><span>距离</span><strong><b id="distance-value">0</b> m</strong></div>
+      </div>
+      <div class="hud-actions">
+        <button id="sound-button" class="icon-button sound-on" type="button" aria-label="关闭声音"><span></span></button>
+        <button id="pause-button" class="icon-button pause-icon" type="button" aria-label="暂停游戏"><span></span></button>
+      </div>
+    </section>
+
+    <nav id="touch-controls" aria-label="触屏操作">
+      <button type="button" data-action="left" aria-label="向左换道"><span>‹</span></button>
+      <button type="button" data-action="right" aria-label="向右换道"><span>›</span></button>
+      <button type="button" data-action="jump" aria-label="跳跃"><span>↑</span><small>跳</small></button>
+      <button type="button" data-action="slide" aria-label="滑铲"><span>↓</span><small>滑</small></button>
+    </nav>
+    <div id="combo" aria-live="polite"><span>连击</span><strong>x2</strong></div>
+    <div id="segment-label" aria-live="polite">高架城区</div>
+
+    <section id="pause-screen" class="screen overlay-screen" hidden>
+      <div class="result-panel compact">
+        <p class="eyebrow">系统暂停</p>
+        <h2>稍作喘息</h2>
+        <button id="resume-button" class="primary-button" type="button">继续 <span>Esc</span></button>
+        <button id="pause-restart-button" class="text-button" type="button">重新开始</button>
+      </div>
+    </section>
+
+    <section id="gameover-screen" class="screen overlay-screen" hidden>
+      <div class="result-panel">
+        <p class="eyebrow" id="result-kicker">本次记录</p>
+        <h2 id="result-title">路线中断</h2>
+        <div class="result-score"><span>得分</span><strong id="result-score">0</strong></div>
+        <dl class="result-grid">
+          <div><dt>距离</dt><dd><b id="result-distance">0</b> m</dd></div>
+          <div><dt>金币</dt><dd id="result-coins">0</dd></div>
+          <div><dt>最高</dt><dd id="result-best">0</dd></div>
+        </dl>
+        <button id="restart-button" class="primary-button" type="button">再次出发 <span>Enter</span></button>
+        <button id="back-button" class="text-button" type="button">返回首页</button>
+      </div>
+    </section>
+
+    <div id="record-banner" role="status">新纪录</div>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
