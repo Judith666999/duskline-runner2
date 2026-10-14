@@ -1,0 +1,12 @@
+{
+  "round": 1,
+  "prompt_slug": "01-示例提示词",
+  "session_id": "01a139c6-8367-77d1-9852-955b68022572",
+  "exit_code": 0,
+  "started_at": "2026-10-14T17:37:53.1649219+08:00",
+  "finished_at": "2026-10-14T17:37:57.1746536+08:00",
+  "last_message_file": "last-message.txt",
+  "trajectory_files": [
+    "rollout-2026-10-14T17-37-53-01a139c6-8367-77d1-9852-955b68022572.jsonl"
+  ]
+}

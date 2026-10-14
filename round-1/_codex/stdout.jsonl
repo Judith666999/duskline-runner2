@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a139c6-8367-77d1-9852-955b68022572"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"完成"}}
+{"type":"turn.completed","usage":{"input_tokens":13093,"cached_input_tokens":13056,"output_tokens":32,"reasoning_output_tokens":30}}
